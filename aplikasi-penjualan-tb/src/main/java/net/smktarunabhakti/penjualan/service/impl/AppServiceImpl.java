@@ -20,10 +20,10 @@ public class AppServiceImpl implements AppService {
 
 	@Autowired
 	public BarangDao barangDao;
-
+	
 	public void simpanBarang(Barang b) {
 		barangDao.save(b);
-
+		
 	}
 
 	public void hapusBarang(Barang b) {
@@ -33,7 +33,7 @@ public class AppServiceImpl implements AppService {
 		}
 		barangDao.delete(b);
 	}
-
+		
 
 	public Page<Barang> cariSemuaBarang(Pageable p) {
 		// TODO Auto-generated method stub
@@ -54,5 +54,5 @@ public class AppServiceImpl implements AppService {
 		// TODO Auto-generated method stub
 		return barangDao.count();
 	}
-
+	
 }
