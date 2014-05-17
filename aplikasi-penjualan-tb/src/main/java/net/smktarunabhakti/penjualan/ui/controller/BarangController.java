@@ -67,4 +67,13 @@ public class BarangController {
     	URI uri = new UriTemplate("{requestUrl}/(id)").expand(requestUrl, x.getId());
     	response.setHeader("Location", uri.toASCIIString());
     }
+    @RequestMapping(method = RequestMethod.DELETE, value = "/barang/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void delete(@PathVariable String id){
+    	Barang barang = appService.cariBarangById(id);
+    	if (barang == null){
+    		throw new IllegalStateException();
+    	}
+    	appService.hapusBarang(barang);
+    }
 }
